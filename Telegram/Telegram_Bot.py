@@ -18,6 +18,7 @@ from Telegram.handles.rmchina import rmchina
 from Telegram.handles.rmglobal import rmglobal
 from Telegram.handles.tip import tip
 from Telegram.handles.help import help
+from Telegram.handles.show_tweeters import show
 
 
 base_dir = os.path.dirname((os.path.abspath(__file__)))
@@ -106,6 +107,7 @@ def handler_adding(application):
     application.add_handler(CommandHandler('rmglobal', rmglobal))
     application.add_handler(CommandHandler('help', help))
     application.add_handler(CommandHandler('tip', tip))
+    application.add_handler(CommandHandler('tweeters', show))
 
 
 def main() -> None:

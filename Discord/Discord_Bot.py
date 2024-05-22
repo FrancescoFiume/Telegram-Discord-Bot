@@ -1,6 +1,12 @@
 #!/usr/bin/python3
+import os
+import sys
+
 import rpyc
 
+
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from Api.Discord_Api import discord_api
 
 from Discord.Message_Polishing import Polisher

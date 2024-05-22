@@ -1,9 +1,10 @@
 import asyncio
 import os
+import sys
 import threading
 import rpyc
 from rpyc import ThreadedServer
-import trio
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from Api.Telegram_Api import key
 import logging
 from telegram import Update, ChatMemberUpdated, Message, Chat

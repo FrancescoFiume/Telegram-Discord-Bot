@@ -7,12 +7,12 @@ import time
 def run_telegram_bot():
     base_dir = os.path.dirname((os.path.abspath(__file__)))
     bot_path = os.path.join(base_dir, '../Telegram', 'Telegram_Bot.py')
-    process = subprocess.Popen(['python', bot_path])
+    process = subprocess.Popen(['python', bot_path], env=os.environ.copy())
     process.wait()
 def run_discord_bot():
     base_dir = os.path.dirname((os.path.abspath(__file__)))
     bot_path = os.path.join(base_dir, '../Discord', 'Discord_Bot.py')
-    process = subprocess.Popen(['python', bot_path])
+    process = subprocess.Popen(['python', bot_path], env=os.environ.copy())
     process.wait()
 
 

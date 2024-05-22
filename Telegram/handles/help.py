@@ -11,4 +11,5 @@ async def help(update: Update , context: CallbackContext):
                                     f"/here - Modify forum thread where you want tweets posted in\n"
                                     "/rmchinese - Remove chinese tweets from forwarding\n"
                                     "/rmglobal - Remove global tweets from forwarding\n"
-                                    "/tip - Informations about tipping\n")
+                                    "/tip - Informations about tipping\n"
+                                    "/tweeters - List of all the tweeters\n")

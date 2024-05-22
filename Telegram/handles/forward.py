@@ -32,9 +32,10 @@ async def new_chat_member(update: Update, context: CallbackContext):
 
 
         finally:
+            db.close()
             await update.message.reply_text(
                 "send '/global' command to add tweets from the global community\nsend /chinese to add tweets from the chinese community")
-            db.close()
+
 
 
     else:

@@ -7,12 +7,21 @@ async def here(update: Update, context: CallbackContext):
 
     chat = update.effective_chat
     message = update.effective_message
-    admins = await context.bot.get_chat_administrators(chat.id)
-    admins_id = [admin.user.id for admin in admins]
+    if db.is_closed():
+        db.connect()
+    admins_id = []
+    user = ""
+    try:
+        admins = await context.bot.get_chat_administrators(chat.id)
+        admins_id = [admin.user.id for admin in admins]
+
+    except Exception as e:
+        user = Chat.get(chat_id=chat.id)
+
     if chat.is_forum:
 
         if message.from_user.id in admins_id:
-            db.connect()
+
             try:
                 chat_model = Chat.get(chat_id=chat.id)
                 thread_id = message.message_thread_id

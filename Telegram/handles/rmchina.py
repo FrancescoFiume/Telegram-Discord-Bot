@@ -7,10 +7,18 @@ async def rmchina(update: Update, context: CallbackContext):
 
     chat = update.effective_chat
     message = update.effective_message
-    admins = await context.bot.get_chat_administrators(chat.id)
-    admins_id = [admin.user.id for admin in admins]
-    if message.from_user.id in admins_id:
+    if db.is_closed():
         db.connect()
+    admins_id = []
+    user = ""
+    try:
+        admins = await context.bot.get_chat_administrators(chat.id)
+        admins_id = [admin.user.id for admin in admins]
+
+    except Exception as e:
+        user = Chat.get(chat_id=chat.id)
+    if message.from_user.id in admins_id or user.is_private_chat:
+
         try:
             region_obj = Region.get(chat_id=chat.id, code="CN")
             region_obj.delete_instance()

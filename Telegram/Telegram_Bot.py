@@ -107,7 +107,7 @@ def handler_adding(application):
     application.add_handler(CommandHandler('rmchinese', rmchina))
     application.add_handler(CommandHandler('rmglobal', rmglobal))
     application.add_handler(CommandHandler('help', help))
-    application.add_handler(CommandHandler('tip', tip))
+    application.add_handler(CommandHandler('tipme', tip))
     application.add_handler(CommandHandler('tweeters', show))
 
 

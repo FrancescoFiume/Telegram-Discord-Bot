@@ -26,7 +26,7 @@ class Chat(BaseModel):
 class Region(BaseModel):
     id = AutoField(primary_key=True)
     code = CharField(max_length=64, null=True)
-    chat_id = ForeignKeyField(Chat, backref='regions', field='chat_id', null=True)
+    chat_id = ForeignKeyField(Chat, backref='regions', field='chat_id', null=True, on_delete='CASCADE')
 
 class Tweeter(BaseModel):
     id = AutoField(primary_key=True)
@@ -37,8 +37,6 @@ class Tweeter(BaseModel):
 if __name__ == '__main__':
     db.connect()
     db.create_tables([Chat])
-    db.create_tables([Tweeter])
-    db.create_tables([Region])
     db.close()
 
 

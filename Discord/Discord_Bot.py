@@ -56,39 +56,6 @@ async def on_message(message):
         "region" : message.content[0:2],
         "message": message.content
     }
-    '''
-
-    chats = ["-1001943071555", "-1001707714192"]
-    for n in chats:
-
-        if n == "-1001707714192":
-            params = {
-                "chat_id": n,
-                "message_thread_id": 152176,
-                "text": message.content
-            }
-            #response = requests.post(url, json=params)+
-        
-            if response.status_code == 200:
-                print("Message sent successfully!")
-            else:
-                print("Failed to send message:", response.text)
-        else:
-            if "Kaspa - 中文" in message.content:
-                pass
-            else:
-                params = {
-                    "chat_id": n,
-                    "text": message.content
-                }
-                #response = requests.post(url, json=params)
-                
-                if response.status_code == 200:
-                    print("Message sent successfully!")
-                else:
-                    print("Failed to send message:", response.text)
-
-    '''
     telegram_conn = rpyc.connect("localhost", 18812)
     telegram_conn.root.send_message(forwarding)
     await bot.process_commands(message)

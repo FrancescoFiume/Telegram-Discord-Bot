@@ -23,4 +23,4 @@ async def show(update: Update, context: CallbackContext):
 
     db.close()
     await update.message.reply_text("Gloabl Tweeters:\n"+ global_tweeters +
-                                    "\nChinese Tweeteers\n:" + chinese)
+                                    "\nChinese Tweeteers: \n" + chinese)
